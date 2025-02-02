@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Timetable</title>
+    <link rel="stylesheet" href="timetable.css">
+</head>
+<body>
+    <div class="timetable-container">
+        <h1>Faculty Timetable</h1>
+        <p>View and manage the faculty's timetable from Monday to Saturday.</p>
+
+        <!-- Day Selection Buttons -->
+        <div class="day-selection">
+            <button class="day-button active" onclick="updateTimetable('Monday', this)">Monday</button>
+            <button class="day-button" onclick="updateTimetable('Tuesday', this)">Tuesday</button>
+            <button class="day-button" onclick="updateTimetable('Wednesday', this)">Wednesday</button>
+            <button class="day-button" onclick="updateTimetable('Thursday', this)">Thursday</button>
+            <button class="day-button" onclick="updateTimetable('Friday', this)">Friday</button>
+            <button class="day-button" onclick="updateTimetable('Saturday', this)">Saturday</button>
+        </div>
+
+        <!-- Timetable Table -->
+        <table class="timetable">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th id="day-heading">Monday</th>
+                </tr>
+            </thead>
+            <tbody id="timetable-body">
+                <!-- Rows will be dynamically updated -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Timetable data
+        const timetableData = {
+            Monday: ['Lecture 1', 'Lecture 2', 'Free Period', 'Lunch Break', 'Lecture 3', 'Free Period'],
+            Tuesday: ['Lecture 3', 'Free Period', 'Lecture 2', 'Lunch Break', 'Lecture 1', 'Lecture 2'],
+            Wednesday: ['Free Period', 'Lecture 1', 'Lecture 3', 'Lunch Break', 'Free Period', 'Lecture 1'],
+            Thursday: ['Lecture 2', 'Lecture 1', 'Free Period', 'Lunch Break', 'Lecture 3', 'Lecture 2'],
+            Friday: ['Lecture 3', 'Free Period', 'Lecture 1', 'Lunch Break', 'Lecture 2', 'Free Period'],
+            Saturday: ['Free Period', 'Lecture 3', 'Lecture 1', 'Lunch Break', 'Lecture 2', 'Free Period']
+        };
+
+        function updateTimetable(day, button) {
+            document.getElementById('day-heading').textContent = day;
+            const timetableBody = document.getElementById('timetable-body');
+            timetableBody.innerHTML = ''; 
+
+            const times = ['9:00 - 10:00 AM', '10:00 - 11:00 AM', '11:00 - 12:00 PM', '12:00 - 1:00 PM', '1:00 - 2:00 PM', '2:00 - 3:00 PM'];
+            timetableData[day].forEach((schedule, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${times[index]}</td><td class="${schedule === 'Lunch Break' ? 'break' : ''}">${schedule}</td>`;
+                timetableBody.appendChild(row);
+            });
+
+            document.querySelectorAll('.day-button').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+
+        // Load default timetable for Monday
+        updateTimetable('Monday', document.querySelector('.day-button.active'));
+    </script>
+</body>
+</html>

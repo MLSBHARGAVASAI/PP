@@ -1,0 +1,110 @@
+/* Background Image & Centering */
+.login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;  /* Keeps it vertically centered */
+    justify-content: center; /* Centers content horizontally */
+    padding-left: 10%; /* Adjusts content slightly to the left */
+    width: 100%; /* Ensures container takes full width */
+    position: absolute; /* Use absolute positioning */
+    right: 0; /* Align to the right (still applies background) */
+    top: 0; /* Align to the top */
+    background: url('1.png') no-repeat center center/cover;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1s forwards; /* Fade-in animation on load */
+}
+
+/* 3D Rotate Effect on Login Box */
+.login-box {
+    width: 380px; /* Slightly smaller width for a cleaner look */
+    padding: 25px; /* Adequate padding for balance */
+    background: rgba(255, 255, 255, 0.85); /* Slightly more solid background for contrast */
+    border-radius: 10px; /* Slightly rounder corners for a softer appearance */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Softer and slightly larger shadow */
+    position: absolute;
+    left: 20%;
+    text-align: center;
+    margin: 0 auto; /* Centers the box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, rotate 1s ease; /* Smooth transition for transformations */
+    transform-style: preserve-3d; /* Enable 3D transformations */
+    transform: perspective(1000px); /* Adding perspective for the 3D effect */
+    opacity: 0; /* Initially hidden */
+    animation: slideIn 1s ease-out 0.5s forwards; /* Slide-in animation for the login box */
+}
+
+/* 360-degree Rotation Effect */
+.login-box:hover {
+    transform: rotateY(360deg); /* Full rotation around Y-axis */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover for the 3D effect */
+}
+
+/* Input Fields */
+.login-box input {
+    font-size: 16px; /* Larger font size for readability */
+    padding: 12px 16px; /* Better padding for input fields */
+    width: 100%;
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 8px; /* Slightly rounded corners */
+    margin-bottom: 15px; /* Spacing between input fields */
+    box-sizing: border-box; /* Includes padding in width calculation */
+    opacity: 0; /* Initially hidden */
+    animation: fadeInUp 1s ease-out 1s forwards; /* Fade and slide up for input fields */
+}
+
+/* Button Styling */
+#login-btn {
+    width: 100%;
+    font-size: 18px; /* Slightly smaller font size for balance */
+    padding: 14px; /* Adequate padding for a clean look */
+    background-color: #007bff; /* Bright blue background */
+    color: white; /* White text for contrast */
+    border: none; /* Removes default border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Cursor pointer for better UX */
+    opacity: 0; /* Initially hidden */
+    animation: fadeInUp 1s ease-out 1.5s forwards; /* Fade and slide up for button */
+}
+
+/* Button Hover Effect */
+.login-btn:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+    transform: translateY(-3px); /* Slightly lift the button */
+}
+
+/* Input Focus Effect */
+.login-box input:focus {
+    border-color: #007bff; /* Highlight the border color when input is focused */
+    transform: scale(1.05); /* Slightly scale the input when focused */
+}
+
+/* Keyframes for Entry Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Starts below the screen */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends at normal position */
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Starts slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends at normal position */
+    }
+}

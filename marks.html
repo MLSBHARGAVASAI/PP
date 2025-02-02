@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks</title>
+    <link rel="stylesheet" href="marks.css">
+    <style>
+        /* General Body Styling */
+        body {
+    font-family: 'Arial', sans-serif;
+    background: url('63.png '); /* Background image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+
+        /* Header Styling */
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds depth to the header */
+        }
+
+        /* Marks Container */
+        .marks-container {
+            background: rgba(0, 0, 0, 0.6); /* Slight transparency for the background */
+            border-radius: 15px;
+            margin: 40px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 900px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Section Heading */
+        h2 {
+            text-align: center;
+            color: #FFD700; /* Golden color */
+            font-size: 28px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #6a1b9a; /* Purple background for header */
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f0f0f0; /* Light gray for even rows */
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #d1c4e9; /* Light purple for odd rows */
+        }
+
+        table td {
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Input and Button Styling */
+        .input-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            width: 200px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 200px;
+            padding: 15px;
+            background: linear-gradient(45deg, #f44336, #e91e63); /* Gradient button */
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #e91e63, #f44336);
+            transform: translateY(-3px); /* Slight lift effect */
+        }
+
+        .btn:active {
+            transform: translateY(1px); /* Button press down effect */
+        }
+    </style>
+</head>
+<body>
+    <h1>Faculty Marks Page</h1>
+    <div class="marks-container">
+        <h2>Student Marks</h2>
+        <div class="input-container">
+            <input type="text" id="studentName" placeholder="Enter Student Name">
+            <input type="number" id="marks" placeholder="Enter Marks">
+            <button class="btn" onclick="addMarks()">Add Marks</button>
+        </div>
+        <table id="marksTable">
+            <tr>
+                <th>Student Name</th>
+                <th>Marks</th>
+            </tr>
+            <tr>
+                <td>Student 1</td>
+                <td>85</td>
+            </tr>
+            <tr>
+                <td>Student 2</td>
+                <td>92</td>
+            </tr>
+            <tr>
+                <td>Student 3</td>
+                <td>78</td>
+            </tr>
+            <tr>
+                <td>Student 4</td>
+                <td>88</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function addMarks() {
+            const name = document.getElementById('studentName').value;
+            const marks = document.getElementById('marks').value;
+
+            if (name && marks) {
+                const table = document.getElementById('marksTable');
+                const newRow = table.insertRow();
+
+                const nameCell = newRow.insertCell(0);
+                const marksCell = newRow.insertCell(1);
+
+                nameCell.innerHTML = name;
+                marksCell.innerHTML = marks;
+
+                // Clear the input fields after adding the row
+                document.getElementById('studentName').value = '';
+                document.getElementById('marks').value = '';
+            } else {
+                alert('Please enter both student name and marks!');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+/* Faculty List */
+.faculty-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Faculty Details Container */
+.faculty-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out; /* Smooth scale-up effect */
+}
+
+.faculty-container:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Faculty Image */
+.faculty-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #007bff;
+    margin-right: 20px;
+}
+
+/* Faculty Info */
+.info-container h1 {
+    font-size: 18px;
+    color: #2c3e50; /* Darker text for the name */
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.info-container h2 {
+    font-size: 14px;
+    color: #8e44ad; /* Purple color for department and designation */
+    margin: 5px 0;
+}
+
+.info-container h2:first-child {
+    color: #3498db; /* Blue color for department */
+}
+
+.info-container h2:nth-child(2) {
+    color: #e74c3c; /* Red color for designation */
+}
+
+/* Faculty Buttons - Horizontal Layout */
+.faculty-buttons {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+/* Button Styling */
+.custom-button {
+    background: linear-gradient(45deg, #007bff, #0056b3); /* Gradient effect */
+    background-clip: text; /* Standard property */
+    -webkit-background-clip: text; /* Vendor prefix for compatibility */
+    color: transparent; /* Ensures the background gradient is visible through the text */
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease; /* Smooth transition */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-button:hover {
+    background: linear-gradient(45deg, #0056b3, #003d7a); /* Darker gradient on hover */
+    transform: translateY(-3px); /* Slightly move the button up */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+.custom-button:active {
+    transform: translateY(2px); /* Button presses down slightly when clicked */
+}
+
+/* Faculty Heading with Background Image */
+/* Faculty Heading with 3D Text Effect */
+.faculty-heading {
+    text-align: center;
+    font-size: 36px;
+    color: #FFA500; /* Orange text color */
+    margin-top: 30px;
+    padding: 40px;
+    background-size: cover;
+    background-position: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 0, 0, 0.7); /* Adds depth to text shadow */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    animation: text3d 2s infinite alternate;
+}
+
+/* 3D Animation */
+@keyframes text3d {
+    0% {
+        transform: translateZ(0);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+    100% {
+        transform: translateZ(20px); /* Moves text forward, creating 3D effect */
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6), 0 0 50px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 1); /* Stronger shadow at max translation */
+    }
+}
+/* Background Image for the entire page */
+body {
+    background-image: url('64.png'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire page */
+    background-position: center center; /* Centers the image */
+    background-attachment: fixed; /* Fixes the background image when scrolling */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    font-family: Arial, sans-serif; /* Optional, to set a default font */
+    margin: 0;
+    padding: 0;
+}
+
+/* Optional: if you have specific section styles that you want to layer over the background */
+.faculty-heading {
+    background: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent dark overlay on top of the background image */
+    color: white;
+}
